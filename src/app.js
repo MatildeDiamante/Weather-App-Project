@@ -38,7 +38,43 @@ if (minutes < 10) {
 }
 dateElement.innerHTML = `${day}, ${date} ${month} ${year}, ${hours}:${minutes}`;
 
+function showCurrentTemperature(response) {
+  let positionTemperature = document.querySelector("#temperature");
+  let positionCity = document.querySelector("#city");
+  let positionDescription = document.querySelector("#description");
+  let positionHumidity = document.querySelector("#humidity");
+  let positionWind = document.querySelector("#wind");
+  let positionIcon = document.querySelector("#icon");
+
+  celsiusTemperature = response.data.main.temp;
+
+  positionTemperature.innerHTML = Math.round(response.data.main.temp);
+  positionCity.innerHTML = response.data.name;
+  positionDescription.innerHTML = response.data.weather[0].description;
+  positionHumidity.innerHTML = response.data.main.humidity;
+  positionWind.innerHTML = Math.round(response.data.wind.speed);
+  positionIcon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+}
+
+function showLocation(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let apiKey = "b95f179627c8dd37f41e1be6e3250e19";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(showCurrentTemperature);
+}
+
+function getCurrentLocation() {
+  navigator.geolocation.getCurrentPosition(showLocation);
+}
+
 function showTemperature(response) {
+  console.log(response);
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
@@ -91,6 +127,9 @@ function showCelsiusTemperature(event) {
 }
 
 let celsiusTemperature = null;
+
+let button = document.querySelector("#current-location");
+button.addEventListener("click", getCurrentLocation);
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", controlSubmit);
