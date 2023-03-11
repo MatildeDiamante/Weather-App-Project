@@ -63,7 +63,6 @@ function showTemperature(response) {
 function search(city) {
   let apiKey = "4e22t034db35d40a22ab70aofd62244b";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-  //https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric//
   axios.get(apiUrl).then(showTemperature);
 }
 

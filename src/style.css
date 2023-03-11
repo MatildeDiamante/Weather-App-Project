@@ -33,6 +33,17 @@ li:first-letter {
   border: 1px solid #dadde1;
   border-radius: 5px;
 }
+.location-button {
+  height: 25px;
+  width: 25px;
+  border-radius: 70%;
+  padding: 18px;
+}
+.location-button span {
+  font-size: 20px;
+  display: block;
+  margin: -14px;
+}
 .overview {
   margin-bottom: 20px;
 }
