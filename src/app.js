@@ -55,9 +55,9 @@ function showCurrentTemperature(response) {
   positionWind.innerHTML = Math.round(response.data.wind.speed);
   positionIcon.setAttribute(
     "src",
-    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
-  iconElement.setAttribute("alt", response.data.weather[0].description);
+  iconElement.setAttribute("alt", response.data.condition.icon);
 }
 
 function showLocation(position) {
