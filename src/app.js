@@ -1,13 +1,7 @@
-function updatedDate(timestamp) {
-  let date = new Date(timestamp);
-  let hours = date.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-  let minutes = date.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
+function updatedDate() {
+  let weatherDate = new Date();
+  let dateElement = document.querySelector("#date");
+
   let days = [
     "Sunday",
     "Monday",
@@ -17,11 +11,37 @@ function updatedDate(timestamp) {
     "Friday",
     "Saturday",
   ];
-  let day = days[date.getDay()];
-  return `${day} ${hours}:${minutes}`;
+  let day = days[weatherDate.getDay()];
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "Dicember",
+  ];
+  let month = months[weatherDate.getMonth()];
+  let date = weatherDate.getDate();
+  let year = weatherDate.getFullYear();
+  let hours = weatherDate.getHours();
+  let minutes = weatherDate.getMinutes();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  dateElement.innerHTML = `${day}, ${date} ${month} ${year}, ${hours}:${minutes}`;
 }
 
 function showTemperature(response) {
+  console.log(response);
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
@@ -30,24 +50,26 @@ function showTemperature(response) {
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
 
-  celsiusTemperature = response.data.main.temp;
+  celsiusTemperature = response.data.temperature.current;
 
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
-  cityElement.innerHTML = response.data.name;
-  descriptionElement.innerHTML = response.data.weather[0].description;
-  humidityElement.innerHTML = response.data.main.humidity;
+  temperatureElement.innerHTML = Math.round(response.data.temperature.current);
+  cityElement.innerHTML = response.data.city;
+  descriptionElement.innerHTML = response.data.condition.description;
+  humidityElement.innerHTML = response.data.temperature.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
-  dateElement.innerHTML = updatedDate(response.data.dt * 1000);
+  dateElement.innerHTML = updatedDate(response.data.time * 1000);
   iconElement.setAttribute(
     "src",
-    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+    //https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png
   );
-  iconElement.setAttribute("alt", response.data.weather[0].description);
+  iconElement.setAttribute("alt", response.data.condition.icon);
 }
 
 function search(city) {
-  let apiKey = "46108c2f44aed2b9456dfc37c161b607";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiKey = "4e22t034db35d40a22ab70aofd62244b";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  //https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric//
   axios.get(apiUrl).then(showTemperature);
 }
 
