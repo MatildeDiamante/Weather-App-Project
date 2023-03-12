@@ -1,10 +1,12 @@
 body {
-  font-family: arial, sans-serif;
+  font-family: monospace;
+  background: #111f30;
 }
+
 h1 {
-  color: #878787;
-  font-size: 24px;
-  font-weight: 100;
+  color: #ffff;
+  font-size: 29px;
+  font-weight: 600;
   line-height: 28px;
   margin-bottom: 0;
 }
@@ -16,7 +18,7 @@ li {
   list-style: none;
   margin: 0;
   padding: 0;
-  color: #878787;
+  color: #ffff;
   font-size: 16px;
   font-weight: 100;
   line-height: 19px;
@@ -24,25 +26,83 @@ li {
 li:first-letter {
   text-transform: capitalize;
 }
+small {
+  color: #ffff;
+}
+small a {
+  color: red;
+}
 .weather-app-wrap {
   max-width: 600px;
-  margin: 30px auto;
+  margin: 70px auto;
 }
 .border-around {
   padding: 20px;
   border: 1px solid #dadde1;
-  border-radius: 5px;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
+}
+.form-control {
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
+  border: solid 4px transparent;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
+    ),
+    linear-gradient(101deg, purple, orange);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: 2px 1000px 1px #fff inset;
+}
+.form-control:focus::-webkit-input-placeholder {
+  color: #fff;
+}
+.form-control:focus {
+  color: #fff;
+}
+.search-button {
+  border-radius: 20px;
+  box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
+  border: solid 4px transparent;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
+    ),
+    linear-gradient(101deg, purple, orange);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: 2px 1000px 1px #111f30 inset;
+}
+.search-button:active {
+  background-origin: none;
+  outline: none;
+  border: none;
 }
 .location-button {
+  background: #111f30;
   height: 25px;
   width: 25px;
+  padding: 19px;
   border-radius: 70%;
-  padding: 18px;
+  border: solid 4px transparent;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
+    ),
+    linear-gradient(101deg, purple, orange);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: 2px 1000px 1px #111f30 inset;
+}
+.location-button:hover {
+  background: #111f30;
 }
 .location-button span {
-  font-size: 20px;
+  font-size: 18px;
   display: block;
-  margin: -14px;
+  margin: -12px;
 }
 .overview {
   margin-bottom: 20px;
@@ -53,7 +113,7 @@ li:first-letter {
   width: 64px;
 }
 .weather-temperature strong {
-  color: rgb(33, 33, 33);
+  color: #ffff;
   font-size: 64px;
   line-height: 1;
   font-weight: 400;
@@ -64,7 +124,7 @@ li:first-letter {
   top: -34px;
 }
 .weather-temperature .active {
-  color: rgb(33, 33, 33);
+  color: #ffff;
   cursor: default;
 }
 .weather-temperature .active:hover {
