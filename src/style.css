@@ -26,6 +26,11 @@ li {
 li:first-letter {
   text-transform: capitalize;
 }
+.gradient-border {
+  border: solid 3px red;
+  border-radius: 50%;
+  padding: 5px 0 4px 2px;
+}
 small {
   color: #ffff;
 }
