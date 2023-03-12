@@ -2,7 +2,6 @@ body {
   font-family: monospace;
   background: #111f30;
 }
-
 h1 {
   color: #ffff;
   font-size: 29px;
@@ -26,40 +25,29 @@ li {
 li:first-letter {
   text-transform: capitalize;
 }
-.gradient-border-celsius {
-  padding: 5px 0 4px 2px;
-  border-radius: 50%;
-  box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
-  border: solid 4px transparent;
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0),
-      rgba(255, 255, 255, 0)
-    ),
-    linear-gradient(101deg, purple, orange);
-  background-origin: border-box;
-  background-clip: content-box, border-box;
-  box-shadow: 2px 1000px 1px #111f30 inset;
-}
-.gradient-border-fahrenheit {
-  padding: 5px 8px 4px 2px;
-  margin-left: 7px;
-  border-radius: 50%;
-  box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
-  border: solid 4px transparent;
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0),
-      rgba(255, 255, 255, 0)
-    ),
-    linear-gradient(101deg, purple, orange);
-  background-origin: border-box;
-  background-clip: content-box, border-box;
-  box-shadow: 2px 1000px 1px #111f30 inset;
+hr {
+  margin-top: 0;
 }
 small {
   color: #ffff;
 }
 small a {
-  color: red;
+  color: #ffff;
+  padding: 4px 7px 5px;
+  border-radius: 20px;
+  box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
+  border: solid 4px transparent;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
+    ),
+    linear-gradient(101deg, purple, orange);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: 2px 1000px 1px #111f30 inset;
+}
+small a:hover {
+  color: #ffff;
 }
 .weather-app-wrap {
   max-width: 600px;
@@ -69,7 +57,7 @@ small a {
   padding: 20px;
   border: 1px solid #dadde1;
   border-radius: 10px;
-  box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
+  box-shadow: rgba(100, 100, 111, 0.6) 0px 7px 29px 0px;
 }
 .form-control {
   border-radius: 20px;
@@ -158,4 +146,33 @@ small a {
 }
 .weather-temperature .active:hover {
   text-decoration: none;
+}
+.gradient-border-celsius {
+  padding: 5px 0 4px 2px;
+  border-radius: 50%;
+  box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
+  border: solid 4px transparent;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
+    ),
+    linear-gradient(101deg, purple, orange);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: 2px 1000px 1px #111f30 inset;
+}
+.gradient-border-fahrenheit {
+  padding: 5px 8px 4px 2px;
+  margin-left: 7px;
+  border-radius: 50%;
+  box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
+  border: solid 4px transparent;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
+    ),
+    linear-gradient(101deg, purple, orange);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: 2px 1000px 1px #111f30 inset;
 }
