@@ -38,43 +38,7 @@ if (minutes < 10) {
 }
 dateElement.innerHTML = `${day}, ${date} ${month} ${year}, ${hours}:${minutes}`;
 
-function showCurrentTemperature(response) {
-  let positionTemperature = document.querySelector("#temperature");
-  let positionCity = document.querySelector("#city");
-  let positionDescription = document.querySelector("#description");
-  let positionHumidity = document.querySelector("#humidity");
-  let positionWind = document.querySelector("#wind");
-  let positionIcon = document.querySelector("#icon");
-
-  celsiusTemperature = response.data.main.temp;
-
-  positionTemperature.innerHTML = Math.round(response.data.main.temp);
-  positionCity.innerHTML = response.data.name;
-  positionDescription.innerHTML = response.data.weather[0].description;
-  positionHumidity.innerHTML = response.data.main.humidity;
-  positionWind.innerHTML = Math.round(response.data.wind.speed);
-  positionIcon.setAttribute(
-    "src",
-    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
-  );
-  iconElement.setAttribute("alt", response.data.condition.icon);
-}
-
-function showLocation(position) {
-  let latitude = position.coords.latitude;
-  let longitude = position.coords.longitude;
-  let apiKey = "b95f179627c8dd37f41e1be6e3250e19";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-
-  axios.get(apiUrl).then(showCurrentTemperature);
-}
-
-function getCurrentLocation() {
-  navigator.geolocation.getCurrentPosition(showLocation);
-}
-
 function showTemperature(response) {
-  console.log(response);
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
@@ -124,6 +88,19 @@ function showCelsiusTemperature(event) {
   fahrenheitLink.classList.remove("active");
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+function showLocation(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let apiKey = "4e22t034db35d40a22ab70aofd62244b";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(showTemperature);
+}
+
+function getCurrentLocation() {
+  navigator.geolocation.getCurrentPosition(showLocation);
 }
 
 let celsiusTemperature = null;
