@@ -34,6 +34,7 @@ small {
 small a {
   color: #ffff;
   padding: 4px 7px 5px;
+  margin-right: 2px;
   border-radius: 20px;
   box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
   border: solid 4px transparent;
@@ -145,6 +146,9 @@ small a:hover {
   cursor: default;
 }
 .weather-temperature .active:hover {
+  text-decoration: none;
+}
+.weather-temperature .no-decoration:hover {
   text-decoration: none;
 }
 .gradient-border-celsius {
