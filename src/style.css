@@ -1,9 +1,9 @@
 body {
   font-family: monospace;
   background: #111f30;
+  color: #ffff;
 }
 h1 {
-  color: #ffff;
   font-size: 29px;
   font-weight: 600;
   line-height: 28px;
@@ -17,7 +17,6 @@ li {
   list-style: none;
   margin: 0;
   padding: 0;
-  color: #ffff;
   font-size: 16px;
   font-weight: 100;
   line-height: 19px;
@@ -131,7 +130,6 @@ small a:hover {
   width: 64px;
 }
 .weather-temperature strong {
-  color: #ffff;
   font-size: 64px;
   line-height: 1;
   font-weight: 400;
